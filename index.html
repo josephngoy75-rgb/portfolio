@@ -35,85 +35,191 @@
             </nav>
         </header>
 
-        <main class="min-h-screen w-full flex flex-col items-center bg-[conic-gradient(from_180deg_at_50%_50%,#152A33_30%,#0C1321_55%,#0C1322_40%,#152A33_70%)]">
+        <main >
 
+            <section class="min-h-screen w-full flex flex-col items-center bg-[conic-gradient(from_180deg_at_50%_50%,#152A33_30%,#0C1321_55%,#0C1322_40%,#152A33_70%)] pb-20">  
 
-            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-6 pt-20 md:pt-40">
-                
-                <!-- Conteneur Photo -->
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                    <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
-                        <img 
-                        src="images/joseph.ngoy.jpg" 
-                        alt="Joseph Ngoy" 
-                        class="w-full h-full object-cover"
-                        />
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-6 pt-20 md:pt-40">
+                    
+                    <!-- Conteneur Photo -->
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                        <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
+                            <img 
+                            src="images/joseph.ngoy.jpg" 
+                            alt="Joseph Ngoy" 
+                            class="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Conteneur Nom -->
+                    <div class="flex flex-col text-center md:text-left">
+
+                        <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tight leading-tight">
+                            Joseph
+                        </h1>
+                        
+                        <h2 class="text-6xl md:text-8xl font-bold tracking-tight leading-none pb-4
+                                    bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82]">
+                            Ngoy
+                        </h2> 
                     </div>
                 </div>
 
-                <!-- Conteneur Nom -->
-                <div class="flex flex-col text-center md:text-left">
-
-                    <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tight leading-tight">
-                        Joseph
-                    </h1>
+                <!-- SOUS-TITRE -->
+                <div class="mt-12 text-center px-6">
+                    <p class="text-white font-bold text-lg md:text-2xl tracking-wide">
+                    Economist | Trader | Full Stack Web Development
+                    </p>
                     
-                    <h2 class="text-6xl md:text-8xl font-bold tracking-tight leading-none pb-4
-                                bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82]">
-                        Ngoy
-                    </h2> 
+                    <p class="mt-6 max-w-3xl text-slate-400 text-base md:text-lg leading-relaxed mx-auto">
+                    Je combine analyse économique, trading stratégique et création digitale pour concevoir des <br class="hidden md:block"> solutions modernes orientées performance.
+                    </p>
                 </div>
-            </div>
 
-            <!-- SOUS-TITRE -->
-            <div class="mt-12 text-center px-6">
-                <p class="text-white font-bold text-lg md:text-2xl tracking-wide">
-                Economist | Trader | Full Stack Web Development
-                </p>
+                <!-- BOUTONS D'ACTION -->
+                <div class="mt-10 flex flex-col sm:flex-row gap-5 items-center justify-center">
+                    
+                    <a href="projets.html" class="group flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] hover:scale-[1.02] transition-all duration-300">
+                    Voir mes projets
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+
+                    <a href="contact.html" class="px-10 py-3.5 rounded-xl font-bold text-white bg-[#0f172a]/80 border border-slate-800 hover:bg-slate-800 transition-all duration-300">
+                    Me contacter
+                    </a>
+                </div>
+
+                            <!--CARTES DE STATISTIQUES -->
+                <div class="mt-20 w-full max-w-6xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    
+                    <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
+                        <span class="text-4xl font-bold text-[#2D7ECA]">0+</span>
+                        <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Années d'expérience</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
+                        <span class="text-4xl font-bold text-[#2D7ECA]">2+</span>
+                        <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Projets réalisés</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
+                        <span class="text-4xl font-bold text-[#2D7ECA]">2+</span>
+                        <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Clients satisfaits</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
+                        <span class="text-4xl font-bold text-[#2D7ECA]">4 mois</span>
+                        <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Expertises</span>
+                    </div>
+                </div>
+
+            </section>
+
+                <!-- Section À Propos -->
+            <section class="w-full bg-[#0A0E1B] pt-44 pb-32 px-6">
                 
-                <p class="mt-6 max-w-3xl text-slate-400 text-base md:text-lg leading-relaxed mx-auto">
-                Je combine analyse économique, trading stratégique et création digitale pour concevoir des <br class="hidden md:block"> solutions modernes orientées performance.
-                </p>
-            </div>
+                <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+                    
+                    <span class="text-sky-500 font-semibold tracking-[0.2em] uppercase text-sm">
+                    À propos
+                    </span>
 
-            <!-- BOUTONS D'ACTION -->
-            <div class="mt-10 flex flex-col sm:flex-row gap-5 items-center justify-center">
+                    <h2 class="mt-6 text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82]">
+                    Profil Hybride
+                    </h2>
+
+                    <p class="mt-8 max-w-3xl text-slate-400 text-lg md:text-xl font-medium leading-relaxed">
+                        Une approche unique qui combine analyse économique rigoureuse et création digitale innovante
+                    </p>
+
+                    <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
+                    
+                        <!-- CARTE 1 : Analyse Économique -->
+                        <div class="group relative p-8 rounded-3xl bg-[#0f172a]/40 border border-[#2D7ECA]/30 hover:border-[#2D7ECA]/60 transition-all duration-300">
+                            <div class="flex items-start gap-5">
+                                <!-- Icône Trading -->
+                                <div class="p-3 rounded-xl bg-sky-500/10 text-sky-500">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="text-xl font-bold text-white uppercase tracking-wide">Analyse Économique & Trading</h3>
+                                    <p class="mt-4 text-slate-400 text-sm leading-relaxed">
+                                        Formation approfondie en économie et expérience pratique en trading professionnel. Maîtrise de l'analyse fondamentale et technique, gestion de risque et stratégies d'investissement quantitatives.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Badges -->
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="px-4 py-1.5 rounded-full bg-sky-500/5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase">Analyse macro</span>
+                                <span class="px-4 py-1.5 rounded-full bg-sky-500/5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase">Trading algorithmique</span>
+                                <span class="px-4 py-1.5 rounded-full bg-sky-500/5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase">Risk Management</span>
+                            </div>
+                        </div>
+
+                        <!-- CARTE 2 : Développement & Design -->
+                        <div class="group relative p-8 rounded-3xl bg-[#0f172a]/40 border border-[#10AF82]/30 hover:border-[#10AF82]/60 transition-all duration-300">
+                            <div class="flex items-start gap-5">
+                            
+                                <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-500">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="text-xl font-bold text-white uppercase tracking-wide">Développement & Design</h3>
+                                    <p class="mt-4 text-slate-400 text-sm leading-relaxed">
+                                        Création d'expériences web modernes et performantes. Du design UI/UX à l'implémentation technique, je conçois des solutions digitales qui allient esthétique et fonctionnalité.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Badges -->
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">React / TypeScript</span>
+                                <span class="px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">UI/UX Design</span>
+                                <span class="px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTE vision -->
                 
-                <a href="projets.html" class="group flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] hover:scale-[1.02] transition-all duration-300">
-                Voir mes projets
-                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-
-                <a href="contact.html" class="px-10 py-3.5 rounded-xl font-bold text-white bg-[#0f172a]/80 border border-slate-800 hover:bg-slate-800 transition-all duration-300">
-                Me contacter
-                </a>
-            </div>
-
-                        <!--CARTES DE STATISTIQUES -->
-            <div class="mt-20 w-full max-w-6xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="mt-12 w-full max-w-6xl mx-auto p-8 md:p-12 rounded-[40px] bg-[#0f172a]/40 border border-white/5 relative overflow-hidden shadow-2xl">
                 
-                <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
-                    <span class="text-4xl font-bold text-[#2D7ECA]">0+</span>
-                    <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Années d'expérience</span>
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
+                        <div class="p-3 rounded-xl bg-sky-500/10 text-sky-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">Vision & Approche</h3>
+                    </div>
+
+                    <p class="text-slate-400 text-lg md:text-xl leading-relaxed text-left max-w-5xl">
+                        Mon parcours unique me permet de créer des solutions qui vont au-delà du design ou du code. Je comprends les enjeux économiques, les mécanismes de marché et les besoins en data analysis, ce qui me permet de concevoir des outils digitaux véritablement adaptés aux problématiques financières et stratégiques.
+                    </p>
+
+                    <div class="mt-12 pt-8 border-t border-white/5 w-full flex flex-row justify-between items-center">
+                        
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-2 h-2 rounded-full bg-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.8)] group-hover:scale-125 transition-transform"></div>
+                            <span class="text-slate-300 font-bold text-xs uppercase tracking-[0.2em]">Data-driven approach</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)] group-hover:scale-125 transition-transform"></div>
+                            <span class="text-slate-300 font-bold text-xs uppercase tracking-[0.2em]">Performance oriented</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-2 h-2 rounded-full bg-sky-600 shadow-[0_0_12px_rgba(14,165,233,0.8)] group-hover:scale-125 transition-transform"></div>
+                            <span class="text-slate-300 font-bold text-xs uppercase tracking-[0.2em]">Strategic thinking</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
-                    <span class="text-4xl font-bold text-[#2D7ECA]">2+</span>
-                    <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Projets réalisés</span>
-                </div>
+            </section>
 
-                <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
-                    <span class="text-4xl font-bold text-[#2D7ECA]">2+</span>
-                    <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Clients satisfaits</span>
-                </div>
-
-                <div class="flex flex-col items-center justify-center p-8 rounded-3xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm">
-                    <span class="text-4xl font-bold text-[#2D7ECA]">4 mois</span>
-                    <span class="text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest mt-3 text-center">Expertises</span>
-                </div>
-
-            </div>
         </main>
 
   </body>
