@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="fr" class="dark scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
+
+    <body>
+        <header class="fixed top-0 w-full z-50 p-[2px] bg-[linear-gradient(to_right,#1B3A57,#2D7ECA,#1B3A57,#152B25,#19473A,#10AF82,#19473A,#19473A)]">
+    
+            <nav class="w-full px-6 md:px-12 py-4 flex justify-between items-center bg-[conic-gradient(from_180deg_at_50%_50%,#0C1321,#0C1322,#0F1829,#152A33)]">
+
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold tracking-tighter hover:scale-105 transition-transform duration-200">
+                        <span class="text-[#2D7ECA]">M</span><span class="text-[#188693]">I</span><span class="text-[#10AF82]">E</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#propos" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors uppercase">
+                        À propos
+                    </a>
+                    <a href="projets.html" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors uppercase">
+                        Projets
+                    </a>
+                    <!-- BOUTON CTA -->
+                    <a href="contact.html" class="px-7 py-2.5 rounded-xl font-bold text-white bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] hover:scale-[1.01] transition-transform duration-200">
+                        Me Contacter
+                    </a>
+
+                    <!-- BOUTON LANGUE (Après Me Contacter) -->
+                    <button id="lang-switch" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-all">
+                        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        <span id="lang-text" class="text-xs font-bold uppercase">FR</span>
+                    </button>
+                </div>
+
+                            <!-- Bouton Menu Mobile (À droite dans la Nav) -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-white p-2 cursor-pointer outline-none">
+                        <svg id="hamburger-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="relative">
+            <!-- À GAUCHE : Theme Switcher -->
+            <div class="fixed top-28 left-6 md:left-12 z-50">
+                <button id="theme-toggle" class="p-3 rounded-2xl bg-white/5 border border-white/10 text-white hover:scale-110 transition-all cursor-pointer backdrop-blur-md shadow-xl">
+                    <!-- Icônes Lune/Soleil -->
+                    <svg id="sun-icon" class="w-5 h-5 text-orange-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.243 16.243l.707.707M7.757 7.757l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+                    <svg id="moon-icon" class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+
+            <!-- À DROITE : Bouton CV -->
+            <div class="fixed top-28 right-6 md:right-12 z-50">
+                <button onclick="toggleModal('cv-modal')" 
+                        class="group relative px-6 py-2.5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xs md:text-sm uppercase tracking-[0.2em] transition-all duration-300 hover:bg-emerald-500/10 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:scale-105 cursor-pointer outline-none overflow-hidden backdrop-blur-md">
+                    
+                    <!-- Effet de reflet brillant -->
+                    <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                    
+                    <div class="flex items-center gap-3 relative z-10">
+                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span data-i18n="nav-cv">CV</span>
+                    </div>
+                </button>
+            </div>
+                        <!-- MODAL CV -->
+            <div id="cv-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+                        
+                <div onclick="toggleModal('cv-modal')" class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+
+                    <div class="relative w-full max-w-4xl max-h-[90vh] bg-[#0f172a] border border-white/10 rounded-[32px] shadow-2xl overflow-hidden flex flex-col scale-95 transition-transform duration-300">
+                            
+                            <!-- Header de la Modal -->
+                        <div class="flex justify-between items-center p-6 border-b border-white/5">
+                            <h3 class="text-xl font-bold text-white uppercase tracking-tight">Curriculum Vitae</h3>
+                            <button onclick="toggleModal('cv-modal')" class="p-2 rounded-full hover:bg-white/5 text-slate-400 hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
+
+                            <!-- Corps Aperçu du CV -->
+                        <div class="flex-1 overflow-y-auto bg-slate-900 p-4">
+                            <img src="images/Cv ngoy ndala joseph (1)_Page_1.jpg" alt="Preview CV" class="w-full h-auto rounded-lg shadow-2xl">
+                        </div>
+
+                            <!-- Actions -->
+                        <div class="p-6 border-t border-white/5 bg-[#0f172a] flex flex-wrap gap-4 justify-between">
+                            <div class="flex gap-3">
+                                <a href="Cv ngoy ndala joseph (1).pdf" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-all">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    Plein écran
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="w-full flex flex-col items-center bg-[conic-gradient(from_180deg_at_50%_50%,#152A33_30%,#0C1321_55%,#0C1322_40%,#152A33_70%)] pt-32 md:pt-48 pb-0">
+
+                
+                <!-- Canvas pour l'effet de grains Style Google AI Studio -->
+                <canvas id="particle-canvas" class="absolute inset-0 pointer-events-none z-0"></canvas>
+
+                <!-- Ajout d'un léger grain de texture via une image de bruit en overlay -->
+                <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>   
+
+                <!-- BLOC PHOTO ET NOM -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                            <div class="relative w-44 h-44 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
+                            <img src="images/joseph.ngoy.jpg" alt="Joseph Ngoy" class="w-full h-full object-cover"/>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col text-center md:text-left">
+                        <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tight leading-tight">Joseph</h1>
+                        <h2 class="text-6xl md:text-8xl font-bold tracking-tight leading-none pb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82]">Ngoy</h2> 
+                    </div>
+                </div>
+
+                <!-- TEXTES -->
+                <div class="mt-8 text-center max-w-3xl">
+                    <p class="text-white font-bold text-lg md:text-xl tracking-wide uppercase opacity-90">Economist | Trader | Full Stack Web Development</p>
+                    <p class="mt-4 text-slate-400 text-sm md:text-base leading-relaxed">
+                        Je combine analyse économique, trading stratégique et création digitale pour concevoir des solutions modernes orientées performance.
+                    </p>
+                </div>
+
+                <!-- BOUTONS + SOURIS ANIMÉE -->
+                <div class="mt-10 flex flex-row items-center justify-center gap-4 md:gap-8">
+                    <a href="contact.html" class="px-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] hover:scale-[1.02] transition-all text-sm">Me contacter</a>
+
+                    <!-- SOURIS ANIMÉE : Toute l'icône monte et descend -->
+                    <div class="hidden md:flex flex-col items-center opacity-40 animate-bounce">
+                        <div class="w-5 h-8 border-2 border-slate-600 rounded-full flex justify-center p-1">
+                            <div class="w-1 h-1.5 bg-[#2D7ECA] rounded-full"></div>
+                        </div>
+                        <svg class="w-3 h-3 text-slate-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+
+                    <a href="projets.html" class="px-6 py-3 rounded-xl font-bold text-white bg-[#0f172a]/80 border border-slate-800 hover:bg-slate-800 transition-all text-sm">Voir mes projets</a>
+                </div>
+
+                <!-- GRILLE DE STATS : Tailles réduites pour iPad Pro -->
+                <div class="mt-20 w-full max-w-5xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 mb-0">
+                    
+                    <!-- Carte réduite : p-4 au lieu de p-8 -->
+                    <div class="flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
+                        <span class="text-2xl md:text-3xl font-bold text-[#2D7ECA]">0+</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Années d'expérience</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
+                        <span class="text-2xl md:text-3xl font-bold text-[#2D7ECA]">2+</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Projets réalisés</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
+                        <span class="text-2xl md:text-3xl font-bold text-[#2D7ECA]">2+</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Clients satisfaits</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
+                        <span class="text-2xl md:text-3xl font-bold text-[#2D7ECA]">4</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Expertises</span>
+                    </div>
+
+                </div>
+            </section>
+                <!-- Section À Propos -->
+            <section id="propos" class="w-full bg-[#0A0E1B] pt-44 pb-32 px-6">
+                
+                <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+                    
+                    <span class="text-sky-500 font-semibold tracking-[0.2em] uppercase text-sm">
+                        À propos
+                    </span>
+
+                    <h2 class="mt-6 text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82]">
+                        Profil Hybride
+                    </h2>
+
+                    <p class="mt-8 max-w-3xl text-slate-400 text-lg md:text-xl font-medium leading-relaxed">
+                        Une approche unique qui combine analyse économique rigoureuse et création digitale innovante
+                    </p>
+
+                    <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
+                    
+                        <!-- CARTE 1 : Analyse Économique -->
+                        <div class="group relative p-8 rounded-3xl bg-[#0f172a]/40 border border-[#2D7ECA]/30 hover:border-[#2D7ECA]/60 transition-all duration-300">
+                            <div class="flex items-start gap-5">
+                                <!-- Icône Trading -->
+                                <div class="p-3 rounded-xl bg-sky-500/10 text-sky-500">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="text-xl font-bold text-white uppercase tracking-wide">Analyse Économique & Trading</h3>
+                                    <p class="mt-4 text-slate-400 text-sm leading-relaxed">
+                                        Formation approfondie en économie et expérience pratique en trading professionnel. Maîtrise de l'analyse fondamentale et technique, gestion de risque et stratégies d'investissement quantitatives.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Badges -->
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="px-4 py-1.5 rounded-full bg-sky-500/5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase">Analyse macro</span>
+                                <span class="px-4 py-1.5 rounded-full bg-sky-500/5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase">Trading algorithmique</span>
+                                <span class="px-4 py-1.5 rounded-full bg-sky-500/5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase">Risk Management</span>
+                            </div>
+                        </div>
+
+                        <!-- CARTE 2 : Développement & Design -->
+                        <div class="group relative p-8 rounded-3xl bg-[#0f172a]/40 border border-[#10AF82]/30 hover:border-[#10AF82]/60 transition-all duration-300">
+                            <div class="flex items-start gap-5">
+                            
+                                <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-500">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="text-xl font-bold text-white uppercase tracking-wide">Développement & Design</h3>
+                                    <p class="mt-4 text-slate-400 text-sm leading-relaxed">
+                                        Création d'expériences web modernes et performantes. Du design UI/UX à l'implémentation technique, je conçois des solutions digitales qui allient esthétique et fonctionnalité.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Badges -->
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">React / TypeScript</span>
+                                <span class="px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">UI/UX Design</span>
+                                <span class="px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTE vision -->
+                
+                <div class="mt-12 w-full max-w-6xl mx-auto p-8 md:p-12 rounded-[40px] bg-[#0f172a]/40 border border-white/5 relative overflow-hidden shadow-2xl">
+                
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
+                        <div class="p-3 rounded-xl bg-sky-500/10 text-sky-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">Vision & Approche</h3>
+                    </div>
+
+                    <p class="text-slate-400 text-lg md:text-xl leading-relaxed text-left max-w-5xl">
+                        Mon parcours unique me permet de créer des solutions qui vont au-delà du design ou du code. Je comprends les enjeux économiques, les mécanismes de marché et les besoins en data analysis, ce qui me permet de concevoir des outils digitaux véritablement adaptés aux problématiques financières et stratégiques.
+                    </p>
+
+                    <div class="mt-12 pt-8 border-t border-white/5 w-full flex flex-row justify-between items-center">
+                        
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-2 h-2 rounded-full bg-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.8)] group-hover:scale-125 transition-transform"></div>
+                            <span class="text-slate-300 font-bold text-xs uppercase tracking-[0.2em]">Data-driven approach</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)] group-hover:scale-125 transition-transform"></div>
+                            <span class="text-slate-300 font-bold text-xs uppercase tracking-[0.2em]">Performance oriented</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-2 h-2 rounded-full bg-sky-600 shadow-[0_0_12px_rgba(14,165,233,0.8)] group-hover:scale-125 transition-transform"></div>
+                            <span class="text-slate-300 font-bold text-xs uppercase tracking-[0.2em]">Strategic thinking</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Section Compétences -->
+            <section class="w-full bg-[#0A0E1B] pt-20 pb-24 px-6">
+            
+                <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+                    
+                    <span class="text-sky-500 font-semibold tracking-[0.2em] uppercase text-sm">
+                        Compétences
+                    </span>
+
+                    <h2 class="mt-6 text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] pb-2 leading-tight">
+                        Stack Technique & Expertise
+                    </h2>
+
+                    <p class="mt-6 max-w-2xl text-slate-400 text-base md:text-lg">
+                        Un ensemble de compétences techniques et analytiques pour des solutions complètes
+                    </p>
+                </div>
+
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
+  
+                    <!-- CARTE 1 : Tech Skills (Bleu) -->
+                    <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                        <div class="flex items-center gap-4 mb-10">
+                            <div class="p-3 rounded-xl bg-sky-500/10 text-sky-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white uppercase tracking-tight">Tech Skills</h3>
+                        </div>
+
+                        <div class="space-y-8">
+                        <!-- Item 1 -->
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold">
+                                <span class="text-white">Html / Css</span>
+                                <span class="text-slate-400">75%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-sky-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold">
+                                <span class="text-white">JavaScript</span>
+                                <span class="text-slate-400">0%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-sky-500 rounded-full" style="width: 2%"></div> 
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold">
+                                <span class="text-white">Node.js</span>
+                                <span class="text-slate-400">0%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-sky-500 rounded-full" style="width: 2%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold">
+                                <span class="text-white">SQL</span>
+                                <span class="text-slate-400">0%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-sky-500 rounded-full" style="width: 2%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTE Economie & Finance-->
+                <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="p-3 rounded-xl bg-[#10AF82]/10 text-[#10AF82]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white uppercase tracking-tight">Economie & Finance</h3>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Evaluation & gestion de projet</span>
+                                <span class="text-slate-400">95%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#10AF82] rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Analyse Financière</span>
+                                <span class="text-slate-400">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#10AF82] rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Development</span>
+                                <span class="text-slate-400">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#10AF82] rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Trading algorithmique</span>
+                                <span class="text-slate-400">75%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#10AF82] rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTE 3 : Outils-->
+                <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="p-3 rounded-xl bg-[#9810FA]/10 text-[#9810FA]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white uppercase tracking-tight">Outils</h3>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Tailwind css</span>
+                                <span class="text-slate-400">65%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#9810FA] rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Git / GitHub</span>
+                                <span class="text-slate-400">80%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#9810FA] rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Vercel</span>
+                                <span class="text-slate-400">0%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#9810FA] rounded-full" style="width: 2%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>AI</span>
+                                <span class="text-slate-400">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#9810FA] rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTE 4 : Design UI/UX-->
+                <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="p-3 rounded-xl bg-[#F6339A]/10 text-[#F6339A]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white uppercase tracking-tight">Design UI/UX</h3>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Figma / Adobe XD</span>
+                                <span class="text-slate-400">75%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F6339A] rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Prototyping</span>
+                                <span class="text-slate-400">40%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F6339A] rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Design Systems</span>
+                                <span class="text-slate-400">60%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F6339A] rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3 text-sm font-bold text-white">
+                                <span>Animation</span>
+                                <span class="text-slate-400">30%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F6339A] rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Soft Skills & Formation -->
+            <section class="w-full bg-[#0A0E1B] py-24 px-6">
+                <div class="max-w-6xl mx-auto">
+                    
+                    <div class="text-center mb-12">
+                        <h2 class="text-white font-bold uppercase tracking-[0.3em] text-sm">Soft Skills</h2>
+                    </div>
+
+                    <!-- Grille des 3 cartes -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+                    
+                        <!-- Carte 1 -->
+                        <div class="flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                            </div>
+                            <h3 class="text-white font-bold text-xl mb-3">Pensée analytique</h3>
+                            <p class="text-slate-500 text-sm font-medium">Résolution de problèmes complexes</p>
+                        </div>
+
+                        <!-- Carte 2 -->
+                        <div class="flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-white font-bold text-xl mb-3">Agilité</h3>
+                            <p class="text-slate-500 text-sm font-medium">Adaptation rapide aux changements</p>
+                        </div>
+
+                        <!-- Carte 3-->
+                        <div class="flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            </div>
+                            <h3 class="text-white font-bold text-xl mb-3">Vision stratégique</h3>
+                            <p class="text-slate-500 text-sm font-medium">Orientation long terme</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Conteneur Formation -->
+                    <div class="w-full max-w-5xl mx-auto p-8 md:p-12 rounded-[40px] bg-[#0f172a]/30 border border-white/5">
+                    
+                        <h2 class="text-white text-2xl md:text-3xl font-bold text-center mb-12">Formation & Certifications</h2>
+
+                        <div class="space-y-4">
+                            
+                            <!-- Item 1 -->
+                            <div class="group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
+                                <div>
+                                    <h4 class="text-white text-lg md:text-xl">Graduat & Licence en Sciences Économiques et Gestion des affaires</h4>
+                                    <p class="text-slate-500 mt-2 font-medium">Université protestante au Congo (UPC)</p>
+                                </div>
+                                <span class="text-sky-500 font-bold mt-4 md:mt-0">2023-2025</span>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
+                                <div>
+                                    <h4 class="text-white text-lg md:text-xl">Full Stack Web Development</h4>
+                                    <p class="text-slate-500 mt-2 font-medium">Kda academy</p>
+                                </div>
+                                <span class="text-sky-500 font-bold mt-4 md:mt-0">En cours</span>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
+                                <div>
+                                    <h4 class="text-white text-lg md:text-xl">Elite Trader</h4>
+                                    <p class="text-slate-500 mt-2 font-medium">FundedNext</p>
+                                </div>
+                                <span class="text-sky-500 font-bold mt-4 md:mt-0">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="w-full bg-[#0A0E1B] pt-20 border-t border-white/5">
+        
+            <!-- Conteneur principal -->
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                
+                <div class="flex flex-col gap-6">
+                    <h3 class="text-white font-bold text-lg">Téléphone</h3>
+                    <a href="tel:+243825995305" class="text-slate-400 font-bold hover:text-sky-500 transition-colors">
+                        +243 825995305
+                    </a>
+                </div>
+
+                <div class="flex flex-col gap-6">
+                    <h3 class="text-white font-bold text-lg">Liens rapides</h3>
+                    <ul class="flex flex-col gap-4">
+                        <li><a href="#À propos" class="text-slate-400 font-bold hover:text-sky-500 transition-colors">À propos</a></li>
+                        <li><a href="#Compétences" class="text-slate-400 font-bold hover:text-sky-500 transition-colors">Compétences</a></li>
+                        <li><a href="projets.html" class="text-slate-400 font-bold hover:text-sky-500 transition-colors">Projets</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col gap-6">
+                    <h3 class="text-white font-bold text-lg">Suivez-moi</h3>
+                
+                    <!-- Icônes Réseaux Sociaux -->
+                    <div class="flex gap-4">
+
+                        <!-- LinkedIn -->
+                        <a href="#" class="w-11 h-11 rounded-xl bg-slate-800/40 border border-white/5 flex items-center justify-center text-slate-300 hover:bg-sky-500/20 hover:text-sky-500 transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/josephngoy75-rgb" class="w-11 h-11 rounded-xl bg-slate-800/40 border border-white/5 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+
+                        <a href="mailto:joseephngoy75@gmail.com" class="w-11 h-11 rounded-xl bg-slate-800/40 border border-white/5 flex items-center justify-center text-slate-300 hover:bg-sky-500/20 hover:text-sky-500 transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="#" class="w-11 h-11 rounded-xl bg-slate-800/40 border border-white/5 flex items-center justify-center text-slate-300 hover:bg-pink-500/20 hover:text-pink-500 transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+
+                    <a href="mailto:joseephngoy75@gmail.com" class="text-sky-500/80 font-bold hover:text-sky-400 transition-colors">
+                        joseephngoy75@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full border-t border-slate-800/50 py-8">
+                <div class="max-w-6xl mx-auto px-6">
+                    <p class="text-slate-500 font-bold text-sm">
+                        &copy; 2023 By Ngoy Ndala joseph
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+                <!-- OVERLAY MENU MOBILE -->
+        <div id="mobile-menu" class="fixed inset-0 z-[100] hidden flex-col bg-[#0A0E1B]/95 backdrop-blur-xl transition-all duration-300">
+            
+            <!-- Header du menu (Logo et bouton Fermer) -->
+            <div class="flex justify-between items-center px-6 py-5 border-b border-white/5">
+                <div class="text-xl font-bold tracking-tighter">
+                    <span class="text-[#2D7ECA]">M</span><span class="text-[#188693]">I</span><span class="text-[#10AF82]">E</span>
+                </div>
+                <button onclick="toggleMobileMenu()" class="text-white p-2 cursor-pointer">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Liens du menu -->
+            <nav class="flex flex-col items-center justify-center flex-1 gap-10">
+
+                <a href="index.html"onclick="toggleMobileMenu()" data-i18n="nav-projects" class="text-2xl font-bold text-white uppercase tracking-widest hover:text-[#2D7ECA] transition-colors">Accueil</a>
+                <a href="#propos" onclick="toggleMobileMenu()" data-i18n="nav-projects" class="text-2xl font-bold text-white uppercase tracking-widest hover:text-[#2D7ECA] transition-colors">À propos</a>            
+                <a href="projets.html" onclick="toggleMobileMenu()" data-i18n="nav-projects" class="text-2xl font-bold text-white uppercase tracking-widest hover:text-[#2D7ECA] transition-colors">Projets</a>
+                <!-- Bouton CTA Mobile -->
+                <a href="contact.html" onclick="toggleMobileMenu()" data-i18n="nav-contact-btn" class="px-10 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] text-xl shadow-lg">
+                    Me Contacter
+                </a>
+            </nav>
+
+            <!-- Footer du menu (Réseaux ou Email) -->
+            <div class="p-10 text-center border-t border-white/5">
+                <p class="text-slate-500 text-sm font-bold">josephngoy75@gmail.com</p>
+            </div>
+        </div>
+
+        <script>
+            function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                // Empêcher le scroll du body quand le menu est ouvert
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                // Réactiver le scroll
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+                    function toggleModal(id) {
+            const modal = document.getElementById(id);
+            const isHidden = modal.classList.contains('hidden');
+            
+            if (isHidden) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                // Petit délai pour l'animation d'ouverture
+                setTimeout(() => {
+                    modal.querySelector('.relative').classList.remove('scale-95');
+                    modal.querySelector('.relative').classList.add('scale-100');
+                }, 10);
+            } else {
+                modal.querySelector('.relative').classList.remove('scale-100');
+                modal.querySelector('.relative').classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }, 200);
+            }
+        }
+
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const particleCount = 40; // Nombre de grains
+            let mouse = { x: -100, y: -100 };
+
+            // Ajuster la taille du canvas
+            function resize() {
+                canvas.width = canvas.parentElement.offsetWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            // Suivre la souris
+            canvas.parentElement.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            class Particle {
+                constructor() {
+                this.init();
+                }
+
+                init() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5; // Taille minuscule
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                }
+
+                update() {
+                // Mouvement de base (flottement)
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Attraction douce vers la souris
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    this.x += dx * 0.02;
+                    this.y += dy * 0.02;
+                    this.opacity = 0.8; // Devient plus brillant près de la souris
+                } else {
+                    if(this.opacity > 0.2) this.opacity -= 0.01;
+                }
+
+                // Rebondir sur les bords
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                }
+
+                draw() {
+                ctx.fillStyle = `rgba(45, 126, 202, ${this.opacity})`; // Utilise ton bleu #2D7ECA
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                }
+            }
+
+            function init() {
+                for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                p.update();
+                p.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            init();
+            animate();
+        </script>
+
+    </body>
+</html>
