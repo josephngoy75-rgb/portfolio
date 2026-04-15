@@ -49,7 +49,7 @@
 
         <main class="relative">
             <!-- À GAUCHE : Theme Switcher -->
-            <div class="fixed top-28 left-6 md:left-12 z-50">
+            <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out fixed top-28 left-6 md:left-12 z-50">
                 <button id="theme-toggle" class="p-3 rounded-2xl bg-white/5 border border-white/10 text-white hover:scale-110 transition-all cursor-pointer backdrop-blur-md shadow-xl">
                     <!-- Icônes Lune/Soleil -->
                     <svg id="sun-icon" class="w-5 h-5 text-orange-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.243 16.243l.707.707M7.757 7.757l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
@@ -58,7 +58,7 @@
             </div>
 
             <!-- À DROITE : Bouton CV -->
-            <div class="fixed top-28 right-6 md:right-12 z-50">
+            <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out fixed top-28 right-6 md:right-12 z-50">
                 <button onclick="toggleModal('cv-modal')" 
                         class="group relative px-6 py-2.5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xs md:text-sm uppercase tracking-[0.2em] transition-all duration-300 hover:bg-emerald-500/10 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:scale-105 cursor-pointer outline-none overflow-hidden backdrop-blur-md">
                     
@@ -106,9 +106,8 @@
                 </div>
             </div>
 
-            <section class="w-full flex flex-col items-center bg-[conic-gradient(from_180deg_at_50%_50%,#152A33_30%,#0C1321_55%,#0C1322_40%,#152A33_70%)] pt-32 md:pt-48 pb-0">
+            <section class="w-full flex flex-col items-center bg-[conic-gradient(from_180deg_at_50%_50%,#152A33_30%,#0C1321_55%,#0C1322_40%,#152A33_70%)] pt-32 md:pt-48 pb-0" >
 
-                
                 <!-- Canvas pour l'effet de grains Style Google AI Studio -->
                 <canvas id="particle-canvas" class="absolute inset-0 pointer-events-none z-0"></canvas>
 
@@ -117,14 +116,14 @@
 
                 <!-- BLOC PHOTO ET NOM -->
                 <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                    <div class="relative group">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out relative group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                             <div class="relative w-44 h-44 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
                             <img src="images/joseph.ngoy.jpg" alt="Joseph Ngoy" class="w-full h-full object-cover"/>
                         </div>
                     </div>
 
-                    <div class="flex flex-col text-center md:text-left">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col text-center md:text-left">
                         <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tight leading-tight">Joseph</h1>
                         <h2 class="text-6xl md:text-8xl font-bold tracking-tight leading-none pb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82]">Ngoy</h2> 
                     </div>
@@ -132,18 +131,18 @@
 
                 <!-- TEXTES -->
                 <div class="mt-8 text-center max-w-3xl">
-                    <p class="text-white font-bold text-lg md:text-xl tracking-wide uppercase opacity-90">Economist | Trader | Full Stack Web Development</p>
-                    <p class="mt-4 text-slate-400 text-sm md:text-base leading-relaxed">
+                    <p class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out text-white font-bold text-lg md:text-xl tracking-wide uppercase opacity-90">Economist | Trader | Full Stack Web Development</p>
+                    <p class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out mt-4 text-slate-400 text-sm md:text-base leading-relaxed">
                         Je combine analyse économique, trading stratégique et création digitale pour concevoir des solutions modernes orientées performance.
                     </p>
                 </div>
 
                 <!-- BOUTONS + SOURIS ANIMÉE -->
                 <div class="mt-10 flex flex-row items-center justify-center gap-4 md:gap-8">
-                    <a href="contact.html" class="px-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] hover:scale-[1.02] transition-all text-sm">Me contacter</a>
+                    <a href="contact.html" class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out px-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] hover:scale-[1.02] transition-all text-sm">Me contacter</a>
 
                     <!-- SOURIS ANIMÉE : Toute l'icône monte et descend -->
-                    <div class="hidden md:flex flex-col items-center opacity-40 animate-bounce">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out hidden md:flex flex-col items-center opacity-40 animate-bounce">
                         <div class="w-5 h-8 border-2 border-slate-600 rounded-full flex justify-center p-1">
                             <div class="w-1 h-1.5 bg-[#2D7ECA] rounded-full"></div>
                         </div>
@@ -152,24 +151,24 @@
                         </svg>
                     </div>
 
-                    <a href="projets.html" class="px-6 py-3 rounded-xl font-bold text-white bg-[#0f172a]/80 border border-slate-800 hover:bg-slate-800 transition-all text-sm">Voir mes projets</a>
+                    <a href="projets.html" class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out px-6 py-3 rounded-xl font-bold text-white bg-[#0f172a]/80 border border-slate-800 hover:bg-slate-800 transition-all text-sm">Voir mes projets</a>
                 </div>
 
                 <!-- GRILLE DE STATS : Tailles réduites pour iPad Pro -->
                 <div class="mt-20 w-full max-w-5xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 mb-0">
                     
                     <!-- Carte réduite : p-4 au lieu de p-8 -->
-                    <div class="flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
                         <span class="text-2xl md:text-3xl font-bold text-[#2D7ECA]">0+</span>
                         <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Années d'expérience</span>
                     </div>
 
-                    <div class="flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
                         <span class="text-2xl md:text-3xl font-bold text-[#2D7ECA]">2+</span>
                         <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Projets réalisés</span>
                     </div>
 
-                    <div class="flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-[#0a0f1a]/60 border border-white/5 backdrop-blur-sm shadow-lg">
                         <span class="text-2xl md:text-3xl font-bold text-[#2D7ECA]">2+</span>
                         <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Clients satisfaits</span>
                     </div>
@@ -184,21 +183,21 @@
                 <!-- Section À Propos -->
             <section id="propos" class="w-full bg-[#0A0E1B] pt-44 pb-32 px-6">
                 
-                <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+                <div class="max-w-6xl mx-auto flex flex-col items-center text-center ">
                     
-                    <span class="text-sky-500 font-semibold tracking-[0.2em] uppercase text-sm">
+                    <span class="text-sky-500 font-semibold tracking-[0.2em] uppercase text-sm reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out">
                         À propos
                     </span>
 
-                    <h2 class="mt-6 text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82]">
+                    <h2 class="mt-6 text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out">
                         Profil Hybride
                     </h2>
 
-                    <p class="mt-8 max-w-3xl text-slate-400 text-lg md:text-xl font-medium leading-relaxed">
+                    <p class="mt-8 max-w-3xl text-slate-400 text-lg md:text-xl font-medium leading-relaxed reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out">
                         Une approche unique qui combine analyse économique rigoureuse et création digitale innovante
                     </p>
 
-                    <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
+                    <div id="cards" class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out">
                     
                         <!-- CARTE 1 : Analyse Économique -->
                         <div class="group relative p-8 rounded-3xl bg-[#0f172a]/40 border border-[#2D7ECA]/30 hover:border-[#2D7ECA]/60 transition-all duration-300">
@@ -250,7 +249,7 @@
                 
                 <div class="mt-12 w-full max-w-6xl mx-auto p-8 md:p-12 rounded-[40px] bg-[#0f172a]/40 border border-white/5 relative overflow-hidden shadow-2xl">
                 
-                    <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
                         <div class="p-3 rounded-xl bg-sky-500/10 text-sky-500">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
@@ -259,41 +258,41 @@
                         <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">Vision & Approche</h3>
                     </div>
 
-                    <p class="text-slate-400 text-lg md:text-xl leading-relaxed text-left max-w-5xl">
+                    <p class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out text-slate-400 text-lg md:text-xl leading-relaxed text-left max-w-5xl">
                         Mon parcours unique me permet de créer des solutions qui vont au-delà du design ou du code. Je comprends les enjeux économiques, les mécanismes de marché et les besoins en data analysis, ce qui me permet de concevoir des outils digitaux véritablement adaptés aux problématiques financières et stratégiques.
                     </p>
 
                     <div class="mt-10 pt-6 border-t border-white/5 w-full flex flex-row justify-between items-center">
     
-                        <!-- CONTENEUR GAUCHE (Colonne sur mobile, ligne sur PC) -->
-                        <div class="flex flex-col gap-3 md:flex-row md:gap-12">
+                        <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out mt-10 pt-6 border-t border-white/5 w-full flex justify-between items-center">
                             
-                            <!-- Bloc 1 : Data-driven approach -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <!-- Point rapproché (gap-2) et réduit -->
-                                <div class="w-1.5 h-1.5 rounded-full bg-sky-500 shadow-[0_0_8px_rgba(14,165,233,0.8)]"></div>
+                            <div class="flex flex-col gap-2 md:contents">
+                                
+                                <!-- Bloc 1 : Data-driven approach -->
+                                <div class="flex items-center gap-1.5 shrink-0">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-sky-500 shadow-[0_0_8px_rgba(14,165,233,0.8)]"></div>
+                                    <span class="text-slate-300 font-bold text-[9px] md:text-xs uppercase tracking-wider whitespace-nowrap">
+                                        Data-driven approach
+                                    </span>
+                                </div>
+
+                                <!-- Bloc 2 : Performance oriented -->
+                                <div class="flex items-center gap-1.5 shrink-0">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+                                    <span class="text-slate-300 font-bold text-[9px] md:text-xs uppercase tracking-wider whitespace-nowrap">
+                                        Performance oriented
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-1.5 shrink-0 ml-4 md:ml-0">
+                                <div class="w-1.5 h-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_rgba(14,165,233,0.8)]"></div>
                                 <span class="text-slate-300 font-bold text-[9px] md:text-xs uppercase tracking-wider whitespace-nowrap">
-                                    Data-driven approach
+                                    Strategic thinking
                                 </span>
                             </div>
 
-                            <!-- Bloc 2 : Performance oriented -->
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
-                                <span class="text-slate-300 font-bold text-[9px] md:text-xs uppercase tracking-wider whitespace-nowrap">
-                                    Performance oriented
-                                </span>
-                            </div>
                         </div>
-
-                        <!-- CONTENEUR DROITE (Seul à côté sur mobile) -->
-                        <div class="flex items-center gap-2 shrink-0 ml-4 md:ml-0">
-                            <div class="w-1.5 h-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_rgba(14,165,233,0.8)]"></div>
-                            <span class="text-slate-300 font-bold text-[9px] md:text-xs uppercase tracking-wider whitespace-nowrap">
-                                Strategic thinking
-                            </span>
-                        </div>
-
                     </div>
                 </div>
 
@@ -304,15 +303,15 @@
             
                 <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
                     
-                    <span class="text-sky-500 font-semibold tracking-[0.2em] uppercase text-sm">
+                    <span class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out text-sky-500 font-semibold tracking-[0.2em] uppercase text-sm">
                         Compétences
                     </span>
 
-                    <h2 class="mt-6 text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] pb-2 leading-tight">
+                    <h2 class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out mt-6 text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2D7ECA] to-[#10AF82] pb-2 leading-tight">
                         Stack Technique & Expertise
                     </h2>
 
-                    <p class="mt-6 max-w-2xl text-slate-400 text-base md:text-lg">
+                    <p class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out mt-6 max-w-2xl text-slate-400 text-base md:text-lg">
                         Un ensemble de compétences techniques et analytiques pour des solutions complètes
                     </p>
                 </div>
@@ -320,7 +319,7 @@
                 <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
   
                     <!-- CARTE 1 : Tech Skills (Bleu) -->
-                    <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                    <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
                         <div class="flex items-center gap-4 mb-10">
                             <div class="p-3 rounded-xl bg-sky-500/10 text-sky-500">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
@@ -337,6 +336,7 @@
                             </div>
                             <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
                                 <div class="h-full bg-sky-500 rounded-full" style="width: 75%"></div>
+                                
                             </div>
                         </div>
                         <!-- Item 2 -->
@@ -375,7 +375,7 @@
                 </div>
 
                 <!-- CARTE Economie & Finance-->
-                <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
                     <div class="flex items-center gap-4 mb-10">
                         <div class="p-3 rounded-xl bg-[#10AF82]/10 text-[#10AF82]">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4"></path></svg>
@@ -424,7 +424,7 @@
                 </div>
 
                 <!-- CARTE 3 : Outils-->
-                <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
                     <div class="flex items-center gap-4 mb-10">
                         <div class="p-3 rounded-xl bg-[#9810FA]/10 text-[#9810FA]">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
@@ -473,7 +473,7 @@
                 </div>
 
                 <!-- CARTE 4 : Design UI/UX-->
-                <div class="p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
+                <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out p-8 rounded-[32px] bg-[#0f172a]/40 border border-white/5">
                     <div class="flex items-center gap-4 mb-10">
                         <div class="p-3 rounded-xl bg-[#F6339A]/10 text-[#F6339A]">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
@@ -527,14 +527,14 @@
                 <div class="max-w-6xl mx-auto">
                     
                     <div class="text-center mb-12">
-                        <h2 class="text-white font-bold uppercase tracking-[0.3em] text-sm">Soft Skills</h2>
+                        <h2 class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out text-white font-bold uppercase tracking-[0.3em] text-sm">Soft Skills</h2>
                     </div>
 
                     <!-- Grille des 3 cartes -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
                     
                         <!-- Carte 1 -->
-                        <div class="flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
+                        <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
                             <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 mb-6">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                             </div>
@@ -543,7 +543,7 @@
                         </div>
 
                         <!-- Carte 2 -->
-                        <div class="flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
+                        <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
                             <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 mb-6">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                             </div>
@@ -552,7 +552,7 @@
                         </div>
 
                         <!-- Carte 3-->
-                        <div class="flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
+                        <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col items-center p-10 rounded-[32px] bg-[#0f172a]/40 border border-white/5 transition-transform hover:scale-[1.02]">
                             <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 mb-6">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                             </div>
@@ -565,12 +565,12 @@
                     <!-- Conteneur Formation -->
                     <div class="w-full max-w-5xl mx-auto p-8 md:p-12 rounded-[40px] bg-[#0f172a]/30 border border-white/5">
                     
-                        <h2 class="text-white text-2xl md:text-3xl font-bold text-center mb-12">Formation & Certifications</h2>
+                        <h2 class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out text-white text-2xl md:text-3xl font-bold text-center mb-12">Formation & Certifications</h2>
 
                         <div class="space-y-4">
                             
                             <!-- Item 1 -->
-                            <div class="group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
+                            <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
                                 <div>
                                     <h4 class="text-white text-lg md:text-xl">Graduat & Licence en Sciences Économiques et Gestion des affaires</h4>
                                     <p class="text-slate-500 mt-2 font-medium">Université protestante au Congo (UPC)</p>
@@ -579,7 +579,7 @@
                             </div>
 
                             <!-- Item 2 -->
-                            <div class="group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
+                            <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
                                 <div>
                                     <h4 class="text-white text-lg md:text-xl">Full Stack Web Development</h4>
                                     <p class="text-slate-500 mt-2 font-medium">Kda academy</p>
@@ -588,7 +588,7 @@
                             </div>
 
                             <!-- Item 3 -->
-                            <div class="group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
+                            <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out group p-6 rounded-2xl bg-[#0f172a]/50 border border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-[#1e293b]/40 transition-colors">
                                 <div>
                                     <h4 class="text-white text-lg md:text-xl">Elite Trader</h4>
                                     <p class="text-slate-500 mt-2 font-medium">FundedNext</p>
@@ -608,13 +608,13 @@
             <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
                 
                 <div class="flex flex-col gap-6">
-                    <h3 class="text-white font-bold text-lg">Téléphone</h3>
-                    <a href="tel:+243825995305" class="text-slate-400 font-bold hover:text-sky-500 transition-colors">
+                    <h3 class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out text-white font-bold text-lg">Téléphone</h3>
+                    <a href="tel:+243825995305" class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out text-slate-400 font-bold hover:text-sky-500 transition-colors">
                         +243 825995305
                     </a>
                 </div>
 
-                <div class="flex flex-col gap-6">
+                <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col gap-6">
                     <h3 class="text-white font-bold text-lg">Liens rapides</h3>
                     <ul class="flex flex-col gap-4">
                         <li><a href="#propos" class="text-slate-400 font-bold hover:text-sky-500 transition-colors">À propos</a></li>
@@ -623,7 +623,7 @@
                     </ul>
                 </div>
 
-                <div class="flex flex-col gap-6">
+                <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out flex flex-col gap-6">
                     <h3 class="text-white font-bold text-lg">Suivez-moi</h3>
                 
                     <!-- Icônes Réseaux Sociaux -->
@@ -655,7 +655,7 @@
                 </div>
             </div>
 
-            <div class="w-full border-t border-slate-800/50 py-8">
+            <div class="reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out w-full border-t border-slate-800/50 py-8">
                 <div class="max-w-6xl mx-auto px-6">
                     <p class="text-slate-500 font-bold text-sm">
                         &copy; 2023 By Ngoy Ndala joseph
@@ -896,6 +896,29 @@
             init();
             animate();
         </script>
+
+        <script>
+  // 1. Animation des sections (Reveal)
+  const observerOptions = {
+    threshold: 0.1 // Déclenche quand 10% de la section est visible
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // On enlève le décalage et on rend visible
+        entry.target.classList.remove('opacity-0', 'translate-y-10');
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+      }
+    });
+  }, observerOptions);
+
+  // On applique l'observateur à toutes les sections avec la classe .reveal
+  document.querySelectorAll('.reveal').forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+</script>
 
     </body>
 </html>
